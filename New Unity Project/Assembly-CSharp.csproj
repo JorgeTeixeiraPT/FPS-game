@@ -53,16 +53,19 @@
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\MouseLook.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
-    <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
-    <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
+    <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
+    <Compile Include="Assets\MouseLook.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
+    <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
+    <Compile Include="Assets\Gun.cs" />
+    <Compile Include="Assets\Western Props\Scripts\Destructible.cs" />
+    <Compile Include="Assets\Target.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DelthorGames\AKM\HowToUse.txt" />
