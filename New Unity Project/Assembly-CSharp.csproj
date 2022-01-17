@@ -69,9 +69,11 @@
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Target.cs" />
+    <Compile Include="Assets\WeaponSwitching.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DelthorGames\AKM\HowToUse.txt" />
+    <None Include="Assets\modern-weapons\README.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\_Bad_Raccoon\_3D Realistic Terrain Free\README FIRST.txt" />
   </ItemGroup>
