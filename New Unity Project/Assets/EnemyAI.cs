@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-
+    
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -22,10 +22,12 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    
+    public string playerName = "Player";
+
+
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find(playerName).transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -82,7 +84,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ResetAttack()
     {
-
+        alreadyAttacked = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -93,4 +95,5 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
+    
 }
