@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,9 +53,6 @@
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -70,11 +67,14 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Target.cs" />
     <Compile Include="Assets\WeaponSwitching.cs" />
+    <Compile Include="Assets\EnemyAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DelthorGames\AKM\HowToUse.txt" />
     <None Include="Assets\modern-weapons\README.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
+    <None Include="Assets\ToonSoldiers_demo\ToonSoldiers_demo.txt" />
+    <None Include="Assets\NavMeshComponents-master\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\_Bad_Raccoon\_3D Realistic Terrain Free\README FIRST.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -713,6 +713,22 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{79391AC5-8752-B4CC-F33F-BB9EB1094377}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{C0BD3A5A-D220-0424-04CE-DBF2436B8C5F}</Project>
+      <Name>NavMeshComponentsExamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{8AFB991B-4A2A-7B38-E812-6612D722293C}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{892F3507-17D6-7612-198C-85CC9543086B}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{993F8A81-C981-E6E6-DD99-39BD27A5B8AD}</Project>
+      <Name>NavMeshComponentsExamplesEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
