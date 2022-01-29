@@ -21,9 +21,13 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
 
+    private UI_Manager uiMnanager;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
+        uiMnanager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+        uiMnanager.UpdateAmmo(currentAmmo);
     }
 
 
@@ -64,6 +68,7 @@ public class Gun : MonoBehaviour
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
         currentAmmo = maxAmmo;
+        uiMnanager.UpdateAmmo(currentAmmo);
         isReloading = false;
     }
 
@@ -73,6 +78,7 @@ public class Gun : MonoBehaviour
     {
         muzzleFlash.Play();
         currentAmmo--;
+        uiMnanager.UpdateAmmo(currentAmmo);
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward,out hit, range))
         {

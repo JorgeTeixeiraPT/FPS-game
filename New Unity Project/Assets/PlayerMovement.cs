@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,9 +15,41 @@ public class PlayerMovement : MonoBehaviour
     public float groudDistance = 0.4f;
     public LayerMask groundMask;
 
-   public Vector3 velocity;
+    public Vector3 velocity;
     public bool isGrounded;
 
+    public float vidaInicial = 200f;
+    public bool fazerRespawn = false;
+    public Vector3 posicaoRespawn;
+    public float vidaAtual;
+
+    public Image imagemVida;
+    
+    private void Start()
+    {
+        posicaoRespawn = gameObject.transform.position;
+        vidaAtual = vidaInicial;
+        
+    }
+    
+
+    public void TakeDamage(float amount)
+    {
+        vidaAtual -= amount;
+        if (vidaAtual <= 0f)
+        {
+            if (fazerRespawn == true)
+            {
+                gameObject.transform.position = posicaoRespawn;
+                vidaAtual = vidaInicial;
+            }
+            else
+            {
+                SceneManager.LoadScene("game_map1");
+                //gameObject.SetActive(false);
+            }
+        }
+    }
 
 
     // Update is called once per frame
@@ -42,5 +76,10 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (imagemVida !=null)
+        {
+            imagemVida.fillAmount = vidaAtual / vidaInicial;
+        }
     }
 }
