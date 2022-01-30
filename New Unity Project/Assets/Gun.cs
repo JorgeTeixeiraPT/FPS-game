@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
 
     private UI_Manager uiMnanager;
 
+    public GameObject player;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -55,7 +57,10 @@ public class Gun : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
+          
+                player.layer = 7;
         }
+
     }
 
 
@@ -99,4 +104,7 @@ public class Gun : MonoBehaviour
             Destroy(impactGO, 2f);
         }
     }
+
+
+    
 }

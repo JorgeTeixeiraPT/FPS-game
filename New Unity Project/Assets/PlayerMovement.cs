@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+    private float speed2;
+    private bool toggle=false;
 
     public Transform groundCheck;
     public float groudDistance = 0.4f;
@@ -24,11 +26,14 @@ public class PlayerMovement : MonoBehaviour
     public float vidaAtual;
 
     public Image imagemVida;
-    
+    public GameObject player;
+
+    public Vector3 moveDir;
     private void Start()
     {
         posicaoRespawn = gameObject.transform.position;
         vidaAtual = vidaInicial;
+        speed2 = speed;
         
     }
     
@@ -65,13 +70,48 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        moveDir = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(moveDir * speed * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (toggle == true)
+            {
+                toggle = false;
+                
+            }
+            else
+            {
+                toggle = true;
+                
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = speed2 * 200;
+        }
+
+        if (toggle==true)
+        {
+            speed = speed2 / 2;
+            player.layer = 0;
+        }
+
+        if(toggle==false)
+        {
+            player.layer = 7;
+            speed = speed2;
         }
 
         velocity.y += gravity * Time.deltaTime;
